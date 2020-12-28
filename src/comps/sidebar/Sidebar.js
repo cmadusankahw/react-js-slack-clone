@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
 import InsertCommentIcon from "@material-ui/icons/InsertComment";
@@ -14,11 +14,30 @@ import AddIcon from "@material-ui/icons/Add";
 
 import "./Sidebar.css";
 import SidebarOption from "./sidebaroption/SidebarOption";
+import db from "../../firebase";
+
+// using user values from React Context API
+import { useStateValue } from "../../StateProvider";
 
 function Sidebar(props) {
-  const user = {
-    displayName: "Chiran HW",
-  };
+  const [channels, setChannels] = useState([]);
+
+  // global user from Context API
+  const [{ user }] = useStateValue();
+
+  // run this when sidebar comp loads (Run once or run agin n again when vars given are changed)
+  useEffect(() => {
+    // getting data from cloud firestore collection
+    db.collection("rooms").onSnapshot((snapshot) =>
+      setChannels(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().name,
+        }))
+      )
+    );
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebar_header">
@@ -42,10 +61,12 @@ function Sidebar(props) {
       <SidebarOption Icon={ExpandLessIcon} title="Show less" />
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
-      <hr />
-      <SidebarOption Icon={AddIcon} title="Add Channel" />
+      <SidebarOption Icon={AddIcon} title="Add Channel" addChannelOption />
 
       {/* connect to db and list all channels --> sidebarOptions */}
+      {channels.map((channel) => (
+        <SidebarOption title={channel.name} id={channel.id} />
+      ))}
     </div>
   );
 }

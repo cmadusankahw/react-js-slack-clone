@@ -4,13 +4,14 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SearchIcon from "@material-ui/icons/Search";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
+// using user values from React Context API
+import { useStateValue } from "../../StateProvider";
+
 import "./Header.css";
 
 function Header(props) {
-  const user = {
-    displayName: "Chiran HW",
-    photoURL: "",
-  };
+  // global user from Context API
+  const [{ user }] = useStateValue();
 
   return (
     <div className="header">
