@@ -16,8 +16,14 @@ import "./Sidebar.css";
 import SidebarOption from "./sidebaroption/SidebarOption";
 import db from "../../firebase";
 
+// using user values from React Context API
+import { useStateValue } from "../../StateProvider";
+
 function Sidebar(props) {
   const [channels, setChannels] = useState([]);
+
+  // global user from Context API
+  const [{ user }] = useStateValue();
 
   // run this when sidebar comp loads (Run once or run agin n again when vars given are changed)
   useEffect(() => {
@@ -31,10 +37,6 @@ function Sidebar(props) {
       )
     );
   }, []);
-
-  const user = {
-    displayName: "Chiran HW",
-  };
 
   return (
     <div className="sidebar">

@@ -2,14 +2,24 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { auth, provider } from "../../firebase";
 
+// using user and actionType values from React Context API
+import { useStateValue } from "../../StateProvider";
+import { actionTypes } from "../../reducer";
+
 import "./Login.css";
 
 function Login(props) {
+  const [state, dispatch] = useStateValue();
+
   const signIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
+        // React Context API to dispatch logged in user with calling SET_USER action to set it global
+        dispatch({
+          type: actionTypes.SET_USER,
+          user: result.user,
+        });
       })
       .catch((err) => {
         alert(err.message);
