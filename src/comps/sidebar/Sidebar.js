@@ -59,8 +59,7 @@ function Sidebar(props) {
       <SidebarOption Icon={ExpandLessIcon} title="Show less" />
       <hr />
       <SidebarOption Icon={ExpandMoreIcon} title="Channels" />
-      <hr />
-      <SidebarOption Icon={AddIcon} title="Add Channel" />
+      <SidebarOption Icon={AddIcon} title="Add Channel" addChannelOption />
 
       {/* connect to db and list all channels --> sidebarOptions */}
       {channels.map((channel) => (

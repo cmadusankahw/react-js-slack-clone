@@ -6,3 +6,8 @@ body {
   /*CSS variables*/
   --slack-color: #3f0f40;
 }
+
+.app_body {
+  display: flex;
+  height: 100vh;
+}
