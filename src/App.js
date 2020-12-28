@@ -33,7 +33,7 @@ function App() {
                   <Chat />
                 </Route>
                 <Route path="/">
-                  <h1> Welcome </h1>
+                  <h5 className="app_mentions"> No recent Mentions... </h5>
                 </Route>
               </Switch>
             </div>

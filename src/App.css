@@ -11,3 +11,11 @@ body {
   display: flex;
   height: 100vh;
 }
+
+.app_mentions {
+  padding-top: 30px;
+  text-align: center;
+  color: gray;
+  font-size: 14px;
+  font-weight: 500;
+}
