@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./comps/header/Header";
 import Sidebar from "./comps/sidebar/Sidebar";
 import Chat from "./comps/chat/Chat";
+import Login from "./comps/login/Login";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         {!user ? (
-          <h1>Login Page</h1>
+          <Login />
         ) : (
           <>
             <Header />
