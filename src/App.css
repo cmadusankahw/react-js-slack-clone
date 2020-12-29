@@ -9,7 +9,7 @@ body {
 
 .app_body {
   display: flex;
-  height: 100vh;
+  height: 87vh;
 }
 
 .app_mentions {
@@ -18,4 +18,5 @@ body {
   color: gray;
   font-size: 14px;
   font-weight: 500;
+  margin-left: 20px;
 }

@@ -6,6 +6,7 @@ import Header from "./comps/header/Header";
 import Sidebar from "./comps/sidebar/Sidebar";
 import Chat from "./comps/chat/Chat";
 import Login from "./comps/login/Login";
+import Footer from "./comps/footer/Footer";
 
 // using user values from React Context API
 import { useStateValue } from "./StateProvider";
@@ -37,6 +38,7 @@ function App() {
                 </Route>
               </Switch>
             </div>
+            <Footer />
           </>
         )}
       </Router>
