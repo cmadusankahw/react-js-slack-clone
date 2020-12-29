@@ -6,6 +6,7 @@ import Header from "./comps/header/Header";
 import Sidebar from "./comps/sidebar/Sidebar";
 import Chat from "./comps/chat/Chat";
 import Login from "./comps/login/Login";
+import Footer from "./comps/footer/Footer";
 
 // using user values from React Context API
 import { useStateValue } from "./StateProvider";
@@ -33,10 +34,11 @@ function App() {
                   <Chat />
                 </Route>
                 <Route path="/">
-                  <h1> Welcome </h1>
+                  <h5 className="app_mentions"> No recent Mentions... </h5>
                 </Route>
               </Switch>
             </div>
+            <Footer />
           </>
         )}
       </Router>
