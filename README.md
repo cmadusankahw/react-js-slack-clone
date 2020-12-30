@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# ReactJS Firebase Slack Clone
+
+This is an absolute Slack clone, build with **React JS** including **User authentication, Material UI for a Responsive Design, and Reach Context API(REDUX) with Firebase Authentication (Google Authentication), Firebase Cloud Firestore real-time database, and Firebase backend for real-time chat**.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
